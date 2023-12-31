@@ -3,6 +3,7 @@ import time
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 columns = [2,3,4,5,6,7,8,9,10,'A']
 index = [8,9,10,11,12,13,14,15,16,17,18,19,20,'A,2','A,3','A,4','A,5','A,6','A,7','A,8','2,2','3,3','4,4','5,5','6,6','7,7','8,8','9,9','10,10']
@@ -30,7 +31,7 @@ values = {'A':11,
 
 Bank = 5000
 
-for i in range (10):
+for i in range (100000):
     pwins = False
     print(f'Your bank is {Bank}')
     playerplay = True
@@ -132,16 +133,10 @@ for i in range (10):
     except:
         pass
 
-df
-dfs
-playerhand
-dealerhand
-pwins
-bet
+
 ddf = dfs/df
-ddf
-for i in ddf.columns:
-    ddf[i] = pd.to_numeric(ddf[i],errors = 'coerce')
-sns.heatmap(data = ddf)
-ddf.info()
-ddf.columns
+ddf = ddf.astype(float).round(2)
+
+f, ax = plt.subplots(figsize=(8,16))
+sns.color_palette("dark:salmon_r", as_cmap=True)
+sns.heatmap(ddf, annot=True, linewidth=.5, ax=ax)
